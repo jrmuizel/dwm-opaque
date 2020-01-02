@@ -89,7 +89,7 @@ struct EventTraceProperties {
 
 static BOOL WINAPI StaticBufferEventCallback(PEVENT_TRACE_LOGFILE buf)
 {
-	std::cout << "StaticBufferEventCallback" << std::endl << std::endl;
+	//std::cout << "StaticBufferEventCallback" << std::endl << std::endl;
 	return TRUE;
 }
 
