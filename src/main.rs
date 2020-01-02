@@ -43,14 +43,9 @@ fn main() {
     let mut dt = DrawTarget::new(WIDTH as i32, HEIGHT as i32);
     dt.set_transform(&Transform::create_scale(0.1, 0.1));
     let mut window = Window::new("Opaque", WIDTH, HEIGHT, WindowOptions::default()).unwrap();
+    window.limit_update_rate(None);
     loop {
     	let mut rects = rx.recv().unwrap();
-	loop {
-		match rx.try_recv() {
-			Ok(r) => { rects = r },
-			Err(_) => break
-		}
-	}
 	dt.clear(SolidSource::from_unpremultiplied_argb(0xff, 0xff, 0xff, 0xff));
 	//println!("{:#?}", rects);
 	for r in rects {
