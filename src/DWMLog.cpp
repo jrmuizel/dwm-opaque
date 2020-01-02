@@ -268,6 +268,7 @@ VOID WINAPI ProcessEvent(PEVENT_RECORD pEvent)
 			// 44 is ETWGUID_OCCLUSIONEVENT
 			// 45 is ETWGUID_OCCLUSIONEVENTStop
 			if (pInfo->EventDescriptor.Id != 43 && pInfo->EventDescriptor.Id != 45 && pInfo->EventDescriptor.Id != 44) {
+				free(pInfo);
 				return;
 			}
 			//wprintf(L"Event ID: %d\n", pInfo->EventDescriptor.Id);
